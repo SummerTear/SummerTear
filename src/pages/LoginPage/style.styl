@@ -1,0 +1,32 @@
+@import '../../styles/variables'
+@import '../../styles/animation'
+
+.wrap
+  display: flex
+  height: "calc(100vh - %s)" % $topBarHeight
+  justify-content: center
+  align-items: center
+@media (max-width: $mobileMaxWidth)
+  .wrap
+    height: 100%
+
+.form
+  width: 18.75rem
+  margin: auto
+  padding: 3rem 0
+
+.fieldWrap
+  margin-bottom: 1rem
+
+.rememberForgot
+  margin-bottom: 1rem
+  padding-left: 1rem
+
+.remember
+.remember input
+  cursor: pointer
+
+.shake
+  animation-name: shake
+  animation-duration: 0.5s
+  animation-fill-mode: both

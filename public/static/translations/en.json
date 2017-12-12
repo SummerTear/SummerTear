@@ -1,0 +1,11 @@
+{
+  "app.login": "Log in",
+  "app.register": "Sign up",
+  "app.email": "Email",
+  "app.nickname": "Nickname",
+  "app.username": "Email or username",
+  "app.password": "Password",
+  "app.remember": "Remember me",
+  "app.loginOrRegister": "Log in / Sign up",
+  "app.search": "Search"
+}

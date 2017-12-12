@@ -1,0 +1,129 @@
+@import '../../styles/variables'
+
+.wrap
+  height: $topBarHeight
+  background-color: $topBarBgColor
+  box-shadow: 0 1px 8px rgba(0,0,0,.3)
+
+.inner
+  display: flex
+  position: relative
+  height: 100%
+  align-items: center
+  max-width: 62.5rem
+  margin: 0 auto
+  padding: 0 1rem
+
+// logo
+.logo
+  //nothing
+.logoText
+  font-size: 1.2rem
+  margin: 0
+
+// search bar
+.search
+  display: flex
+  flex: 1
+  align-items: center
+  justify-content: flex-end
+  margin-right: 1rem
+.searchForm
+  border: 1px solid $inputBorderColor
+  border-radius: 9999px
+@media (max-width: $mobileMaxWidth)
+  .searchForm
+    border: none;
+.searchInput
+  width: 6rem
+  border: 0
+  line-height: 2rem
+  padding: 0
+  background-color: transparent
+  text-indent: 1rem
+  transition: 0.2s linear
+  &:focus
+    width: 10rem
+@media (max-width: $mobileMaxWidth)
+  .searchInput
+    display: none
+.searchSubmit
+  border: 0
+  color: #a0a9b0
+  background-color: transparent
+  &:hover
+    color: $blue
+
+//login register
+.logInOrRegisterWrap
+  //nothing
+.logInOrRegisterText
+  &:hover
+    color: $blue
+@media (max-width: $mobileMaxWidth)
+  .logInOrRegisterText
+    display: none
+//login register on mobile
+.logInOrRegisterIcon
+  width: 2rem
+  height: 2rem
+  color: #a0a9b0
+  display: none
+@media (max-width: $mobileMaxWidth)
+  .logInOrRegisterIcon
+    display: inline-block
+
+//loggedIn avater
+.avatar
+  font-size: 0
+  button
+    border: none
+    padding: 0
+    background-color: transparent
+.avatarImage
+  width: 2rem
+  height: 2rem
+  border-radius: 50%
+.avatarMenu
+  display: block;
+  opacity: 0
+  visibility: hidden
+  position: absolute
+  right: 1rem
+  top: 120%
+  padding: 0.5rem 0
+  border: 1px solid #e7eaf1
+  border-radius: 5px
+  box-shadow: 0 5px 20px rgba(0,34,77,.1)
+  background-color: $white
+  transform:translateY(-2rem);
+  transition: all 0.1s ease-in-out
+.avatarMenu::after
+  content:''
+  position: absolute
+  top: -14px
+  right: 0.5rem
+  border: 7px solid transparent
+  border-bottom-color: $white
+.avatarMenu::before
+  content:''
+  position: absolute
+  top: -17px
+  right: 0.43rem
+  border: 8px solid transparent
+  border-bottom-color: #e7eaf1
+.avatarMenu li a
+  display: block
+  color: $black
+  padding: 0.5rem 1rem
+  font-size: 14px
+.avatarMenu li a:hover
+  color: $white
+  background-color: $blue
+.avatarIcon
+  margin-right: 5px
+.open
+  display: block
+  opacity: 1
+  visibility: visible
+  transform: translateY(0);

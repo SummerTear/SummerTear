@@ -1,0 +1,31 @@
+@import '../../styles/variables'
+
+.button
+  color: $black
+  background-color: $white
+  line-height: 2rem
+  border: 0
+  border-radius: 5px
+  &[disabled]
+    color: #a3a3a3
+    background: #f5f5f5
+    box-shadow: none
+
+.shadow
+  box-shadow:  0px 1px 6px rgba(0, 0, 0, 0.12),  0px 1px 4px rgba(0, 0, 0, 0.12)
+
+.block
+  display: block
+  width: 100%
+  & + .block
+    margin-top: 5px
+
+.blue
+  color: $white
+  background-color: $blue
+.pink
+  color: $white
+  background-color: $pink
+.yellow
+  color: $white
+  background-color: $yellow

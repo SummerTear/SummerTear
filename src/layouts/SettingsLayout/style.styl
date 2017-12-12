@@ -1,0 +1,32 @@
+@import '../../styles/variables'
+
+$tabBarHeight = 2.5rem
+
+.header
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  z-index: 100000
+.nav
+  height: $tabBarHeight
+  line-height: $tabBarHeight
+  text-align: center
+  background: $white
+  li
+    display: inline-block
+    margin-right: 2rem
+    &:last-child
+      margin-right: 0
+    a
+      display: block
+      height: $tabBarHeight
+      &:hover
+        color: $blue
+
+.active
+  color: $blue
+  border-bottom: 3px solid $blue
+
+.content
+  padding-top: $topBarHeight+$tabBarHeight

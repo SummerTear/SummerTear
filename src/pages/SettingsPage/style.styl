@@ -1,0 +1,84 @@
+@import '../../styles/variables'
+
+.card
+  width: 40rem
+  margin: 2rem auto
+  border-radius: 10px
+  box-shadow: none
+
+@media (max-width: $mobileMaxWidth)
+  .card
+    width: auto
+    margin-top: 0
+
+.cardTitle
+  height: 3.5rem
+  line-height: 1.5rem
+  padding: 1rem
+  font-size: 1.2rem
+  font-weight: bold
+  border-bottom: 1px solid $breakLineColor
+.cardContent
+  padding: 1rem 2rem 2rem
+.cardFooter
+  height: 3.5rem
+  line-height: 3.5rem
+  border-top: 1px solid $breakLineColor
+  text-align: right
+  padding-right: 1.2rem
+  button
+    min-width: 5rem
+    vertical-align: middle
+
+.info
+  font-size: 0.8rem
+  color: $grey
+  margin: 0.5rem 0 0
+
+.formGroup
+  position: relative
+  padding-top: 1.5rem
+  overflow: hidden
+
+  input
+    font-weight: normal
+  .formLabel
+    float: left
+    width: 20%
+    line-height: 2rem
+    text-align: right
+    padding-right: 2rem
+  .formControls
+    float: left
+    width: 80%
+  .message
+    position: absolute
+    top: 0
+    color: $pink
+
+userState()
+  display: inline-block
+  line-height: 2rem
+
+.userState1
+  userState()
+  color: $green
+.userState0
+  userState()
+  color: $pink
+.userState-1
+  userState()
+  color: $pink
+.userState-2
+  userState()
+  color: $pink
+
+@media (max-width: $mobileMaxWidth)
+  .formGroup
+    padding-top: 0.5rem
+    .formLabel
+      width: auto
+    .formControls
+      width: 100%
+    .message
+      position: relative
