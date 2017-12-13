@@ -3,13 +3,8 @@ import { createLogicMiddleware } from 'redux-logic';
 
 import rootReducer from 'reducers';
 import rootLogic from 'logics';
-import {
-  createStorageMiddleware,
-  wrapMidlewareForIgnoreAction
-} from './storageMiddleware';
 
 const logicMiddleware = createLogicMiddleware(rootLogic);
-const storageMiddleware = createStorageMiddleware();
 
 let composeEnhancers;
 if (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
@@ -24,12 +19,7 @@ const configureStore = initState => {
   const store = createStore(
     rootReducer,
     initState,
-    composeEnhancers(
-      applyMiddleware(
-        wrapMidlewareForIgnoreAction(logicMiddleware),
-        storageMiddleware
-      )
-    )
+    composeEnhancers(applyMiddleware(logicMiddleware))
   );
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers

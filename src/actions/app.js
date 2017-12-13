@@ -7,7 +7,3 @@ export function initSuccess() {
 export function setStatus(status) {
   return { type: types.SET_STATUS, status };
 }
-
-export function syncStatus() {
-  return { type: types.SYNC_STATUS };
-}

@@ -26,9 +26,6 @@ class App extends Component {
       if (token) {
         this.props.setToken(token);
         this.props.loginSuccess();
-      } else {
-        this.props.syncStatus();
-        this.props.syncToken();
       }
     }
   }
