@@ -60,19 +60,17 @@ locales[locale].data(localeData => {
     let root = document.body.lastElementChild;
     const renderApp = () => {
       let App = require('containers/App').default;
-      requestAnimationFrame(() => {
-        root = render(
-          <Provider store={store}>
-            <IntlProvider locale={locale} messages={localeMessages}>
-              <Router history={history}>
-                <App />
-              </Router>
-            </IntlProvider>
-          </Provider>,
-          document.body,
-          root
-        );
-      });
+      root = render(
+        <Provider store={store}>
+          <IntlProvider locale={locale} messages={localeMessages}>
+            <Router history={history}>
+              <App />
+            </Router>
+          </IntlProvider>
+        </Provider>,
+        document.body,
+        root
+      );
     };
     renderApp();
     /**
@@ -80,7 +78,6 @@ locales[locale].data(localeData => {
      */
     if (process.env.NODE_ENV === 'development') {
       if (module.hot) {
-        console.log('hello');
         // 组建热替换，reducer的热替换在store里
         module.hot.accept('containers/App', () => {
           renderApp();

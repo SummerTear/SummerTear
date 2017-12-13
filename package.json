@@ -9,7 +9,9 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.16.2",
+    "chalk": "^2.3.0",
     "classnames": "^2.2.5",
+    "console-clear": "^1.0.0",
     "erizabesu": "^0.4.0",
     "erizabesu-indicators": "^0.4.0",
     "history": "^4.6.3",
