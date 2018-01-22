@@ -52,7 +52,15 @@ const registerLogic = createLogic({
         route('/confirm');
       })
       .catch(err => {
-        dispatch(registerError(makeErrorMessage(err.response.data.message)));
+        let errMsg;
+        if (err.response) {
+          errMsg = err.response.data.message || err.response.data;
+        } else if (err.request) {
+          errMsg = err.request;
+        } else {
+          errMsg = err.message;
+        }
+        dispatch(registerError(makeErrorMessage(errMsg)));
       })
       .then(() => done());
   }

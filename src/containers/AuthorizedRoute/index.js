@@ -2,16 +2,13 @@ import { h } from 'preact';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'preact-redux';
 
-const AuthorizedRoute = ({ component: Component, loggedIn }) => (
-  <Route
-    render={props => (loggedIn ? <Component /> : <Redirect to="/login" />)}
-  />
-);
+const renderFunc = ({ loggedIn, component: Component }) =>
+  loggedIn ? <Component /> : <Redirect to="/login" />;
 
-function mapStateToProps(state) {
-  return {
-    loggedIn: state.status.loggedIn
-  };
-}
+const AuthorizedRoute = () => <Route render={renderFunc} />;
+
+const mapStateToProps = state => ({
+  loggedIn: state.status.loggedIn
+});
 
 export default connect(mapStateToProps)(AuthorizedRoute);

@@ -40,14 +40,22 @@ module.exports = {
       store: resolve(srcPath, 'store'),
       logics: resolve(srcPath, 'logics'),
       styles: resolve(srcPath, 'styles'),
-      utils: resolve(srcPath, 'utils')
+      utils: resolve(srcPath, 'utils'),
+      'async-component': resolve(srcPath, 'components/async')
     },
     extensions: ['.js', '.jsx', '.json', '.styl']
+  },
+  // https://webpack.js.org/configuration/resolve/#resolveloader
+  resolveLoader: {
+    alias: {
+      async: resolve(__dirname, './async-component-loader')
+    }
   },
   // https://webpack.js.org/configuration/module
   module: {
     rules: [
       {
+        enforce: 'pre',
         test: /\.jsx?$/,
         exclude: [/node_modules/],
         use: [
@@ -61,6 +69,30 @@ module.exports = {
                 'transform-object-rest-spread',
                 ['transform-react-jsx', { pragma: 'h' }]
               ]
+            }
+          }
+        ]
+      },
+      {
+        test: /\.jsx?$/,
+        include: resolve(srcPath, 'pages'),
+        use: [
+          {
+            loader: resolve(__dirname, './async-component-loader'),
+            options: {
+              name(filename) {
+                let relative = filename.replace(srcPath, '');
+                let isPage = filename.indexOf('/pages/') >= 0;
+
+                return isPage
+                  ? 'page-' +
+                      relative.replace(/(^\/(pages)\/|(\/index)?\.js$)/g, '')
+                  : false;
+              },
+              formatName(filename) {
+                let relative = filename.replace(srcPath, '');
+                return relative.replace(/(^\/(pages)\/|(\/index)?\.js$)/g, '');
+              }
             }
           }
         ]
@@ -99,6 +131,12 @@ module.exports = {
         NODE_ENV: JSON.stringify('development')
       }
     }),
+    // https://webpack.js.org/plugins/commons-chunk-plugin
+    new webpack.optimize.CommonsChunkPlugin({
+      children: true,
+      async: false,
+      minChunks: 3
+    }),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin(
       Object.assign({
@@ -130,7 +168,7 @@ module.exports = {
     inline: true,
     quiet: true,
     proxy: { '/api': 'http://127.0.0.1:4000' },
-    contentBase: resolve(__dirname, 'public'),
+    contentBase: resolve(__dirname, '../public'),
     historyApiFallback: true,
     disableHostCheck: true
   }

@@ -12,9 +12,9 @@ import {
 import Loading from 'components/Loading';
 
 //layouts
-import MainLayout from 'layouts/MainLayout';
+import MainLayout from 'layouts/main';
 //pages
-import LogoutPage from 'pages/LogoutPage';
+import LogoutPage from 'pages/logout';
 
 class App extends Component {
   componentDidMount() {

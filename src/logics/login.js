@@ -19,7 +19,15 @@ const authLogic = createLogic({
         route('/', true);
       })
       .catch(err => {
-        dispatch(loginError(makeErrorMessage(err.response.data.message)));
+        let errMsg;
+        if (err.response) {
+          errMsg = err.response.data.message || err.response.data;
+        } else if (err.request) {
+          errMsg = err.request;
+        } else {
+          errMsg = err.message;
+        }
+        dispatch(loginError(makeErrorMessage(errMsg)));
       })
       .then(() => done());
   }

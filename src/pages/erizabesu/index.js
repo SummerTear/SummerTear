@@ -6,7 +6,6 @@ import styles from './style';
 const data = [
   {
     img: 'http://oyb6x67aa.bkt.clouddn.com/slide1.png',
-
     href: 'https://summertear.com/opensource/erizabesu',
     target: '_blank'
   },
@@ -33,7 +32,9 @@ const data = [
 ];
 
 const ErizabesuPage = () => (
-  <Erizabesu class={styles.erizabesu} indicator={Simple} data={data} />
+  <Erizabesu class={styles.erizabesu} data={data}>
+    <Simple />
+  </Erizabesu>
 );
 
 export default ErizabesuPage;

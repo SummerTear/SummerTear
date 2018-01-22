@@ -3,8 +3,8 @@ import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 import { FormattedMessage } from 'preact-intl';
 import styles from './style';
 
-import AccountPage from 'pages/SettingsPage/Account';
-import PasswordPage from 'pages/SettingsPage/Password';
+import AccountPage from 'pages/settings/account';
+import PasswordPage from 'pages/settings/password';
 
 const SettingsLayout = () => (
   <div class="settings">

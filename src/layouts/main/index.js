@@ -4,13 +4,13 @@ import MainHeader from 'containers/MainHeader';
 import AuthorizedRoute from 'containers/AuthorizedRoute';
 import styles from './style';
 
-import HomePage from 'pages/HomePage';
-import LoginPage from 'pages/LoginPage';
-import RegisterPage from 'pages/RegisterPage';
-import ConfirmPage from 'pages/ConfirmPage';
-import NotFoundPage from 'pages/NotFoundPage';
-import ErizabesuPage from 'pages/ErizabesuPage';
-import SettingsLayout from 'layouts/SettingsLayout';
+import HomePage from 'pages/home';
+import LoginPage from 'pages/login';
+import RegisterPage from 'pages/register';
+import ConfirmPage from 'pages/confirm';
+import NotFoundPage from 'pages/not-found';
+import ErizabesuPage from 'pages/erizabesu';
+import SettingsLayout from 'layouts/settings';
 
 const MainLayout = () => {
   return (

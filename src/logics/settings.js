@@ -60,10 +60,18 @@ const settingsAccountFormFieldValidateLogic = createLogic({
                 }
               })
               .catch(err => {
+                let errMsg;
+                if (err.response) {
+                  errMsg = err.response.data.message || err.response.data;
+                } else if (err.request) {
+                  errMsg = err.request;
+                } else {
+                  errMsg = err.message;
+                }
                 reject(
                   settingsAccountFormFieldError(
                     'username',
-                    makeErrorMessage(err.response.data.message)
+                    makeErrorMessage(errMsg)
                   )
                 );
               });
@@ -99,10 +107,18 @@ const settingsAccountFormFieldValidateLogic = createLogic({
                 }
               })
               .catch(err => {
+                let errMsg;
+                if (err.response) {
+                  errMsg = err.response.data.message || err.response.data;
+                } else if (err.request) {
+                  errMsg = err.request;
+                } else {
+                  errMsg = err.message;
+                }
                 reject(
                   settingsAccountFormFieldError(
                     'email',
-                    makeErrorMessage(err.response.data.message)
+                    makeErrorMessage(errMsg)
                   )
                 );
               });
@@ -160,9 +176,15 @@ const settingsAccountLogic = createLogic({
         dispatch(settingsAccountMessage(makeMessage(data.message, data.type)));
       })
       .catch(err => {
-        dispatch(
-          settingsAccountMessage(makeErrorMessage(err.response.data.message))
-        );
+        let errMsg;
+        if (err.response) {
+          errMsg = err.response.data.message || err.response.data;
+        } else if (err.request) {
+          errMsg = err.request;
+        } else {
+          errMsg = err.message;
+        }
+        dispatch(settingsAccountMessage(makeErrorMessage(errMsg)));
       })
       .then(() => done());
   }
@@ -180,9 +202,15 @@ const settingsPasswordLogic = createLogic({
         dispatch(settingsPasswordMessage(makeMessage(data.message, data.type)));
       })
       .catch(err => {
-        dispatch(
-          settingsPasswordMessage(makeErrorMessage(err.response.data.message))
-        );
+        let errMsg;
+        if (err.response) {
+          errMsg = err.response.data.message || err.response.data;
+        } else if (err.request) {
+          errMsg = err.request;
+        } else {
+          errMsg = err.message;
+        }
+        dispatch(settingsPasswordMessage(makeErrorMessage(errMsg)));
       })
       .then(() => done());
   }
