@@ -1915,11 +1915,13 @@ entities@~1.1.1:
   version "1.1.1"
   resolved "http://registry.npm.taobao.org/entities/download/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
 
-erizabesu-indicators@../../erizabesu/packages/erizabesu-indicators/:
-  version "0.4.0"
+erizabesu-indicators@^1.0.3:
+  version "1.0.3"
+  resolved "http://registry.npm.taobao.org/erizabesu-indicators/download/erizabesu-indicators-1.0.3.tgz#b4e4a4da4619fdcdc3d03247df74cd91dbe985c6"
 
-erizabesu@../../erizabesu/packages/erizabesu:
-  version "0.4.0"
+erizabesu@^1.0.3:
+  version "1.0.3"
+  resolved "http://registry.npm.taobao.org/erizabesu/download/erizabesu-1.0.3.tgz#09b4ce62438ca3360a57a21eaf0b60320677fbcb"
 
 errno@^0.1.3:
   version "0.1.5"
